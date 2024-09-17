@@ -1,9 +1,11 @@
 import os
 import sys
 
-# Add the root project directory to the sys.path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+current_dir = os.path.dirname(os.path.abspath(__file__))  # current file's directory
+root_dir = os.path.dirname(os.path.dirname(current_dir))  # go up two levels to root
+sys.path.append(root_dir)
 
+# Now you can import from the src module
 from src.pipeline.exception import CustomException
 from src.logger import logging
 
